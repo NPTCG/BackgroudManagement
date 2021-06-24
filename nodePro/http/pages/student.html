@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生管理</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/student.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default" style="background-color:#4985fb ;">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="color: #fff;">宿舍管理系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle j-admName" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false" style="color: #fff;">管理员<span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu" style="background-color: red;">
+                                <li class="j-esc"><a href="javascript:;" style="color: #fff;">退出账号</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    <section>
+        <div class="row">
+            <div class="col-lg-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="/pages/home.html" class="navFont"><span
+                                class="glyphicon glyphicon-home"></span>
+                            公告主页</a></li>
+                    <li class="j-none-li" role="presentation"><a href="/pages/dormitory.html" class="navFont"><span
+                                class="glyphicon glyphicon-modal-window"></span> 宿舍管理</a>
+                    </li>
+                    <li role="presentation"><a href="/pages/student.html" class="navFont"><span
+                                class="glyphicon glyphicon-briefcase"></span>
+                            学生管理</a>
+                    </li>
+                    <li class="j-none-li" role="presentation"><a href="/pages/notice.html" class="navFont"><span
+                                class="glyphicon glyphicon-book"></span>
+                            公告管理</a></li>
+                    <li class="j-none-li" role="presentation"><a href="/pages/admin.html" class="navFont"><span
+                                class="glyphicon glyphicon-user"></span>
+                            管理员管理 </a></li>
+                </ul>
+            </div>
+            <div class="col-lg-10" id="notice">
+                <div></div>
+                <div id="dormitorySearch" class="dormitorySearch clearfix">
+                    <input type="text" class="form-control j-search" placeholder="请输入学生姓名" style="width: 210px;">
+                    <button id="searchButton" class="btn btn-default" type="submit">搜索</button>
+                    <button id="addButton" class="btn btn-default" type="button" data-toggle="modal"
+                        data-target="#exampleModal1" data-whatever="@mdo">添加学生</button>
+                </div>
+                <div class="table-responsive">
+                    <table id="dormitoryTable" class="table table-bordered text-center">
+                        <thead style="background-color: #eee;" class="row">
+                            <td class="col-lg-1">学号</td>
+                            <td class="col-lg-3">姓名</td>
+                            <td class="col-lg-1">账号</td>
+                            <td class="col-lg-1">学生所属宿舍(元)</td>
+                            <td class="col-lg-1">宿舍水电费余额(元)</td>
+                            <td class="col-lg-2">宿舍状态</td>
+                            <td class="col-lg-5">操作</td>
+                        </thead>
+                        <tbody></tbody>
+
+                    </table>
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="exampleModalLabel">添加学生</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">学号:</label>
+                                            <input type="text" class="form-control j-add-stuId" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">姓名:</label>
+                                            <input type="text" class="form-control j-add-stuName" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">账号:</label>
+                                            <input type="text" class="form-control j-add-stuUserId" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">密码:</label>
+                                            <input type="text" class="form-control j-add-stuPas" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">所属宿舍:</label>
+                                            <select class="form-control j-add-stuDormId" id="recipient-name" name=""
+                                                id="">
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary j-add-btn">确定</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                </div>
+                                <div class="modal-body">
+                                    确定删除该学生
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary j-remove-btn">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">修改学生信息</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">学号:</label>
+                                            <input type="text" class="form-control j-edit-stuId" id="recipient-name"
+                                                disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label ">姓名:</label>
+                                            <input type="text" class="form-control j-edit-stuName" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">账号:</label>
+                                            <input type="text" class="form-control j-edit-stuUserId" id="recipient-name"
+                                                disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="co ntrol-stuPas">密码:</label>
+                                            <input type="text" class="form-control j-edit-stuPas" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="co ntrol-label">所属寝室:</label>
+                                            <select type="text" class="form-control j-edit-stuDormId"
+                                                id="recipient-name"></select>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary j-edit-btn">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">查看缴费记录</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <td>缴费金额</td>
+                                            <td>缴费时间</td>
+                                        </thead>
+                                        <thead class="j-thead"></thead>
+                                    </table>
+                                    <div>
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination pagination-sm js-page">
+                                                <li class="js-back">
+                                                    <a href="javascript:;" aria-label="Previous">
+                                                        <span aria-hidden="true">&laquo;</span>
+                                                    </a>
+                                                </li>
+                                                <!-- <li class="active"><a href="#" style="background-color:#4985fb;">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li> -->
+                                                <li class="js-last js-forword">
+                                                    <a href="javascript:;" aria-label="Next">
+                                                        <span aria-hidden="true">&raquo;</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default btn-esc"
+                                        data-dismiss="modal">关闭</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">宿舍水电费充值</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">寝室:</label>
+                                        <input type="text" class="form-control j-pay-dorm" id="recipient-name" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label ">金额:</label>
+                                        <input type="text" class="form-control j-pay-money" id="recipient-name">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary j-pay-btn">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    <footer>
+        <div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination pagination-sm j-page">
+                    <li class="j-back">
+                        <a href="javascript:;" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <!-- <li class="active"><a href="#" style="background-color:#4985fb;">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li> -->
+                    <li class="j-last j-forword">
+                        <a href="javascript:;" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+<script src="../js/student.js"></script>

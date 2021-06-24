@@ -1,0 +1,35 @@
+.navFont{
+    color: #606266;
+    height: 50px;
+    margin-left:25px;
+    font-size: 14px;
+}
+#notice div:nth-child(1){
+    height: 70px;
+    border-bottom: 2px solid #000;
+}
+#notice div:nth-child(2){
+    height: 60px;
+    line-height: 60px;
+}
+#notice div:nth-child(3){
+    height: 60px;
+    line-height: 60px;
+    background-color: #f3f7f8;
+}
+#table tr{
+    height: 80px;
+}
+.p0{
+    margin-left: 20px;
+}
+.p1{
+    margin-top: 10px;
+    font-weight: bold;
+}
+.p2{
+    color: #888;
+}
+footer div{
+    margin-left: 700px;
+}

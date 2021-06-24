@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告管理</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/notice.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default" style="background-color:#4985fb ;">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="color: #fff;">宿舍管理系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle j-admName" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false" style="color: #fff;">管理员<span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu" style="background-color: red;">
+                                <li class="j-esc"><a href="javascript:;" style="color: #fff;">退出账号</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    <section>
+        <div class="row">
+            <div class="col-lg-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="/pages/home.html" class="navFont"><span
+                                class="glyphicon glyphicon-home"></span>
+                            公告主页</a></li>
+                    <li role="presentation"><a href="/pages/dormitory.html" class="navFont"><span
+                                class="glyphicon glyphicon-modal-window"></span> 宿舍管理</a>
+                    </li>
+                    <li role="presentation"><a href="/pages/student.html" class="navFont"><span
+                                class="glyphicon glyphicon-briefcase"></span>
+                            学生管理</a>
+                    </li>
+                    <li role="presentation"><a href="/pages/notice.html" class="navFont"><span
+                                class="glyphicon glyphicon-book"></span>
+                            公告管理</a></li>
+                    <li role="presentation"><a href="/pages/admin.html" class="navFont"><span
+                                class="glyphicon glyphicon-user"></span>
+                            管理员管理 </a></li>
+                </ul>
+            </div>
+            <div class="col-lg-10" id="notice">
+                <div></div>
+                <div id="dormitorySearch" class="dormitorySearch clearfix">
+                    <input type="text" class="form-control j-search" placeholder="请输入公告标题" style="width: 210px;">
+                    <button id="searchButton" class="btn btn-default" type="submit">搜索</button>
+                    <button id="addButton" class="btn btn-default" type="button" data-toggle="modal"
+                        data-target="#exampleModal1" data-whatever="@mdo">添加公告</button>
+                </div>
+                <div class="table-responsive">
+                    <table id="dormitoryTable" class="table table-bordered text-center">
+                        <thead style="background-color: #eee;" class="row">
+                            <td class="col-lg-2">公告编号</td>
+                            <td class="col-lg-2">公告标题</td>
+                            <td class="col-lg-2">公告内容</td>
+                            <td class="col-lg-2">发布时间</td>
+                            <td class="col-lg-2">发布人</td>
+                            <td class="col-lg-2">操作</td>
+                        </thead>
+                        <tbody></tbody>
+                        </tr>
+                    </table>
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="exampleModalLabel">添加公告</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">公告标题:</label>
+                                            <input type="text" class="form-control j-add-title" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">公告内容:</label>
+                                            <textarea class="form-control j-add-content" id="message-text"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary j-add-btn">确定</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">提示</h4>
+                                </div>
+                                <div class="modal-body">
+                                    确定删除该公告
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary j-remove-btn">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">修改公告</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label">公告编号:</label>
+                                            <input type="text" class="form-control j-edit-userId" id="recipient-name"
+                                                disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="control-label ">公告标题:</label>
+                                            <input type="text" class="form-control j-edit-title" id="recipient-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message-text" class="control-label">公告内容:</label>
+                                            <textarea class="form-control j-edit-content" id="message-text"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="co ntrol-label">发布时间:</label>
+                                            <input type="text" class="form-control j-edit-mytime" id="recipient-name"
+                                                disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recipient-name" class="co ntrol-label">发布人:</label>
+                                            <input type="text" class="form-control j-edit-balance j-edit-name"
+                                                id="recipient-name" disabled>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                    <button type="button" class="btn btn-primary j-edit-btn">确定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+    </section>
+    <footer>
+        <div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination pagination-sm j-page">
+                    <li class="j-back">
+                        <a href="javascript:;" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <!-- <li class="active"><a href="#" style="background-color:#4985fb;">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li> -->
+                    <li class="j-last j-forword">
+                        <a href="javascript:;" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+<script src="../js/notice.js"></script>

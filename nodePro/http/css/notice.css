@@ -1,0 +1,33 @@
+.navFont{
+    color: #606266;
+    height: 50px;
+    margin-left:25px;
+    font-size: 14px;
+}
+
+#notice>div:nth-child(1){
+    height: 70px;
+    border-bottom: 2px solid #000;
+}
+footer div{
+    margin-left: 700px;
+}
+.dormitorySearch>input{
+    float: left;
+}
+.dormitorySearch>button{
+    float: left;
+    margin-left: 10px;
+}
+#dormitorySearch{
+    margin-top: 25px;
+    padding: 20px;
+}
+#searchButton,#resetButton{
+    background-color: #4985fb;
+    color:#fff;
+}
+#addButton{
+    border: 1px solid #07c4a8;
+    color: #07c4a8;
+}

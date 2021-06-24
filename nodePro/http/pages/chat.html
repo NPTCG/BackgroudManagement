@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 400px;
+      height: 460px;
+      border: 1px solid red;
+      margin: 0 auto;
+      overflow: auto;
+    }
+
+    h5 {
+      text-align: center;
+    }
+
+    p {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    .myself {
+      text-align: right;
+    }
+  </style>
+</head>
+
+<body>
+  <h5>web258工作群</h1>
+    <div id="box">
+      <!-- <p><b>张三</b>:<span>xxxxxxxxxxxxxxx</span></p>
+        <p><b>张三</b>:<span>xxxxxxxxxxxxxxx</span></p>
+        <p><b>张三</b>:<span>xxxxxxxxxxxxxxx</span></p>
+        <p><b>张三</b>:<span>xxxxxxxxxxxxxxx</span></p>
+        <p class="myself"><span>xxxxxxxxxxxxxxx</span>:<b>张三</b></p> -->
+    </div>
+    <p>
+      <span>法外狂徒李四</span>：
+      <input type="text">
+      <button>发送</button>
+      <a href="javascript:;">退出</a>
+    </p>
+</body>
+
+</html>
+<script>
+  var oBox = document.getElementById('box');
+  var oS = document.querySelector('span');
+  var oInp = document.querySelector('input');
+  var oBtn = document.querySelector('button');
+  var oA = document.querySelector('a');
+
+  //登录成功才会进这个页面。进了这个页面用户信息已经有了。
+  //一进来就链接
+  var socket = new WebSocket('ws://172.17.7.229:9999');
+  //发送消息
+  oBtn.onclick = function () {
+    var msg = {
+      name: oS.innerHTML,
+      con: oInp.value
+    }
+    socket.send(JSON.stringify(msg));//发送的是字符串
+  }
+  //接收消息
+  socket.onopen = function () { //建立链接等待消息
+    //当消息来的时候
+    socket.onmessage = function (data) { // data里面的data才是数据
+      console.log(data.data);
+      var json = JSON.parse(data.data);
+      var oP = document.createElement('p');
+      if (json.name == '法外狂徒李四') {
+        oP.className = 'myself';
+        oP.innerHTML = '<span>' + json.con + '</span>:<b>' + json.name + '</b>';
+      } else {
+        oP.innerHTML = '<b>' + json.name + '</b>:<span>' + json.con + '</span>';
+      }
+
+      oBox.appendChild(oP);
+    }
+  }
+
+  //退出
+  oA.onclick = function () {
+    socket.close();
+  }
+</script>

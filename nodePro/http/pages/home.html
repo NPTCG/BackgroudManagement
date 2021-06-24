@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公告主页</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-default" style="background-color:#4985fb ;">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="color: #fff;">宿舍管理系统</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle j-admName" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false" style="color: #fff;">管理员<span
+                                    class="caret"></span></a>
+                            <ul class="dropdown-menu" style="background-color: red;">
+                                <li class="j-esc"><a href="javascript:;" style="color: #fff;">退出账号</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    <section>
+        <div class="row">
+            <div class="col-lg-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="/pages/home.html" class="navFont"><span
+                                class="glyphicon glyphicon-home"></span>
+                            公告主页</a></li>
+                    <li role="presentation" class="j-none-li"><a href="/pages/dormitory.html" class="navFont"><span
+                                class="glyphicon glyphicon-modal-window"></span> 宿舍管理</a>
+                    </li>
+                    <li role="presentation"><a href="/pages/student.html" class="navFont"><span
+                                class="glyphicon glyphicon-briefcase"></span>
+                            学生管理</a>
+                    </li>
+                    <li role="presentation" class="j-none-li"><a href="/pages/notice.html" class="navFont"><span
+                                class="glyphicon glyphicon-book"></span>
+                            公告管理</a></li>
+                    <li role="presentation" class="j-none-li"><a href="/pages/admin.html" class="navFont"><span
+                                class="glyphicon glyphicon-user"></span>
+                            管理员管理 </a></li>
+                </ul>
+            </div>
+            <div class="col-lg-10" id="notice">
+                <div></div>
+                <div>
+                    <p class="p1">欢迎进入</p>
+                </div>
+                <div>
+                    <p class="p0">公告</p>
+                </div>
+                <div>
+                    <table id="table" class="table j-notice">
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination pagination-sm j-page">
+                    <li class="j-back">
+                        <a href="javascript:;" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <!-- <li class="active"><a href="#" style="background-color:#4985fb;">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li> -->
+                    <li class="j-last j-forword">
+                        <a href="javascript:;" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+</body>
+
+</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+    crossorigin="anonymous"></script>
+<script src="../js/home.js"></script>
